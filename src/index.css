@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* DESIGN TOKENS */
+:root {
+  --nexus-primary: #2563eb;
+  --nexus-primary-light: #eff6ff;
+  --nexus-primary-dark: #1d4ed8;
+  --nexus-success: #16a34a;
+  --nexus-success-light: #f0fdf4;
+  --nexus-warning: #d97706;
+  --nexus-warning-light: #fffbeb;
+  --nexus-danger: #dc2626;
+  --nexus-danger-light: #fef2f2;
+  --nexus-surface: #f8fafc;
+  --nexus-border: #e2e8f0;
+  --nexus-text-primary: #0f172a;
+  --nexus-text-secondary: #64748b;
+  --nexus-text-muted: #94a3b8;
+  --nexus-radius: 12px;
+  --nexus-radius-sm: 8px;
+  --nexus-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --nexus-shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
+  --nexus-shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+}
+
+/* FullCalendar overrides to match Nexus theme */
+.fc { font-family: inherit; }
+.fc .fc-toolbar-title { font-size: 1.1rem; font-weight: 600; color: var(--nexus-text-primary); }
+.fc .fc-button-primary { background-color: var(--nexus-primary) !important; border-color: var(--nexus-primary) !important; border-radius: var(--nexus-radius-sm) !important; font-size: 0.8rem !important; padding: 0.3rem 0.75rem !important; }
+.fc .fc-button-primary:hover { background-color: var(--nexus-primary-dark) !important; }
+.fc .fc-button-primary:disabled { background-color: var(--nexus-text-muted) !important; border-color: var(--nexus-text-muted) !important; }
+.fc .fc-daygrid-day.fc-day-today { background-color: var(--nexus-primary-light) !important; }
+.fc .fc-event { border-radius: 6px !important; border: none !important; padding: 2px 6px !important; font-size: 0.78rem !important; }
+.fc .fc-event-main { color: white !important; }
+.fc th { font-weight: 600 !important; font-size: 0.8rem !important; color: var(--nexus-text-secondary) !important; }
+.fc .fc-scrollgrid { border-radius: var(--nexus-radius) !important; overflow: hidden; }
+.fc-availability { background-color: #dcfce7 !important; }
+.fc-availability .fc-event-main { color: #166534 !important; }
+.fc-meeting { background-color: var(--nexus-primary) !important; }
+.fc-pending { background-color: #fef3c7 !important; }
+.fc-pending .fc-event-main { color: #92400e !important; }

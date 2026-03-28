@@ -2,6 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
+// Video Calls
+// import { VideoCallPage } from './pages/video/VideoCallPage';
+
+// Payments
+// import { PaymentsPage } from './pages/payments/PaymentsPage';
+
+// Security
+// import { SecurityPage } from './pages/security/SecurityPage'; 
+
+// Calendar
+import { CalendarPage } from './pages/calendar/CalendarPage';
+
 // Layouts
 import { DashboardLayout } from './components/layout/DashboardLayout';
 
@@ -89,6 +101,26 @@ function App() {
             <Route index element={<ChatPage />} />
             <Route path=":userId" element={<ChatPage />} />
           </Route>
+
+          {/* Calendar Routes */}
+          <Route path="/calendar" element={<DashboardLayout />}>
+            <Route index element={<CalendarPage />} />
+          </Route>
+
+          {/* Video Calls */}
+          {/* <Route path="/video" element={<DashboardLayout />}>
+            <Route index element={<VideoCallPage />} />
+          </Route> */}
+
+          {/* Payments */}
+          {/* <Route path="/payments" element={<DashboardLayout />}>
+            <Route index element={<PaymentsPage />} />
+          </Route> */}
+
+          {/* Security */}
+          {/* <Route path="/security" element={<DashboardLayout />}>
+            <Route index element={<SecurityPage />} />
+          </Route> */}
           
           {/* Redirect root to login */}
           <Route path="/" element={<Navigate to="/login" replace />} />
