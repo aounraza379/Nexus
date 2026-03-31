@@ -2,14 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
+
 // Video Calls
-// import { VideoCallPage } from './pages/video/VideoCallPage';
+import { VideoCallPage } from './pages/video/VideoCallPage';
 
 // Payments
-// import { PaymentsPage } from './pages/payments/PaymentsPage';
+import { PaymentsPage } from './pages/payments/PaymentsPage';
 
 // Security
-// import { SecurityPage } from './pages/security/SecurityPage'; 
+import { SecurityPage } from './pages/security/SecurityPage'; 
 
 // Calendar
 import { CalendarPage } from './pages/calendar/CalendarPage';
@@ -108,19 +109,19 @@ function App() {
           </Route>
 
           {/* Video Calls */}
-          {/* <Route path="/video" element={<DashboardLayout />}>
+          <Route path="/video" element={<DashboardLayout />}>
             <Route index element={<VideoCallPage />} />
-          </Route> */}
+          </Route>
 
           {/* Payments */}
-          {/* <Route path="/payments" element={<DashboardLayout />}>
+          <Route path="/payments" element={<DashboardLayout />}>
             <Route index element={<PaymentsPage />} />
-          </Route> */}
+          </Route>
 
           {/* Security */}
-          {/* <Route path="/security" element={<DashboardLayout />}>
+          <Route path="/security" element={<DashboardLayout />}>
             <Route index element={<SecurityPage />} />
-          </Route> */}
+          </Route>
           
           {/* Redirect root to login */}
           <Route path="/" element={<Navigate to="/login" replace />} />
