@@ -200,18 +200,91 @@ export const SecurityPage: React.FC = () => {
               Scan this QR code with your authenticator app (Google Authenticator, Authy, etc.)
             </p>
             {/* Mock QR */}
-            <div style={{ width: 160, height: 160, background: '#f8fafc', border: '1px solid var(--nexus-border)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, padding: 12 }}>
-              <svg width="136" height="136" viewBox="0 0 136 136">
-                {/* Simple QR-like pattern mock */}
-                {[...Array(17)].map((_, r) =>
-                  [...Array(17)].map((_, c) => {
-                    const isCorner = (r < 7 && c < 7) || (r < 7 && c > 9) || (r > 9 && c < 7);
-                    const fill = isCorner ? (r === 0 || r === 6 || c === 0 || c === 6 ? '#000' : r > 0 && r < 6 && c > 0 && c < 6 ? (r > 1 && r < 5 && c > 1 && c < 5 ? '#000' : '#fff') : '#fff') : Math.random() > 0.55 ? '#000' : '#fff';
-                    return <rect key={`${r}-${c}`} x={c * 8} y={r * 8} width={7} height={7} fill={fill} />;
-                  })
-                )}
-              </svg>
-            </div>
+            {/* Static QR mockup */}
+            <div style={{ width: 160, height: 160, background: 'white', border: '1px solid var(--nexus-border)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+            <svg width="160" height="160" viewBox="-4 -4 29 29" shape-rendering="crispEdges">
+  {/* <!-- Background --> */}
+  <rect x="-4" y="-4" width="29" height="29" fill="white"/>
+
+  {/* <!-- Finder Patterns --> */}
+  {/* <!-- Top-left --> */}
+  <rect x="0" y="0" width="7" height="7" fill="#000"/>
+  <rect x="1" y="1" width="5" height="5" fill="#fff"/>
+  <rect x="2" y="2" width="3" height="3" fill="#000"/>
+
+  {/* <!-- Top-right --> */}
+  <rect x="14" y="0" width="7" height="7" fill="#000"/>
+  <rect x="15" y="1" width="5" height="5" fill="#fff"/>
+  <rect x="16" y="2" width="3" height="3" fill="#000"/>
+
+  {/* <!-- Bottom-left --> */}
+  <rect x="0" y="14" width="7" height="7" fill="#000"/>
+  <rect x="1" y="15" width="5" height="5" fill="#fff"/>
+  <rect x="2" y="16" width="3" height="3" fill="#000"/>
+
+  {/* <!-- Timing Patterns --> */}
+  {/* <!-- Horizontal --> */}
+  <rect x="8" y="6" width="1" height="1" fill="#000"/>
+  <rect x="9" y="6" width="1" height="1" fill="#fff"/>
+  <rect x="10" y="6" width="1" height="1" fill="#000"/>
+  <rect x="11" y="6" width="1" height="1" fill="#fff"/>
+  <rect x="12" y="6" width="1" height="1" fill="#000"/>
+
+  {/* <!-- Vertical --> */}
+  <rect x="6" y="8" width="1" height="1" fill="#000"/>
+  <rect x="6" y="9" width="1" height="1" fill="#fff"/>
+  <rect x="6" y="10" width="1" height="1" fill="#000"/>
+  <rect x="6" y="11" width="1" height="1" fill="#fff"/>
+  <rect x="6" y="12" width="1" height="1" fill="#000"/>
+
+  {/* <!-- Fake Data Modules (balanced, QR-like randomness) --> */}
+  {/* <!-- Row 8 --> */}
+  <rect x="8" y="8" width="1" height="1" fill="#000"/>
+  <rect x="10" y="8" width="1" height="1" fill="#000"/>
+  <rect x="12" y="8" width="1" height="1" fill="#000"/>
+  <rect x="13" y="8" width="1" height="1" fill="#000"/>
+
+  {/* <!-- Row 9 --> */}
+  <rect x="9" y="9" width="1" height="1" fill="#000"/>
+  <rect x="11" y="9" width="1" height="1" fill="#000"/>
+  <rect x="14" y="9" width="1" height="1" fill="#000"/>
+
+  {/* <!-- Row 10 --> */}
+  <rect x="8" y="10" width="1" height="1" fill="#000"/>
+  <rect x="10" y="10" width="1" height="1" fill="#000"/>
+  <rect x="12" y="10" width="1" height="1" fill="#000"/>
+
+  {/* <!-- Row 11 --> */}
+  <rect x="9" y="11" width="1" height="1" fill="#000"/>
+  <rect x="11" y="11" width="1" height="1" fill="#000"/>
+  <rect x="13" y="11" width="1" height="1" fill="#000"/>
+
+  {/* <!-- Row 12 --> */}
+  <rect x="8" y="12" width="1" height="1" fill="#000"/>
+  <rect x="10" y="12" width="1" height="1" fill="#000"/>
+  <rect x="12" y="12" width="1" height="1" fill="#000"/>
+  <rect x="14" y="12" width="1" height="1" fill="#000"/>
+
+  {/* <!-- Lower area --> */}
+  <rect x="8" y="14" width="1" height="1" fill="#000"/>
+  <rect x="10" y="14" width="1" height="1" fill="#000"/>
+  <rect x="12" y="14" width="1" height="1" fill="#000"/>
+
+  <rect x="9" y="15" width="1" height="1" fill="#000"/>
+  <rect x="11" y="15" width="1" height="1" fill="#000"/>
+
+  <rect x="8" y="16" width="1" height="1" fill="#000"/>
+  <rect x="10" y="16" width="1" height="1" fill="#000"/>
+  <rect x="12" y="16" width="1" height="1" fill="#000"/>
+
+  <rect x="9" y="17" width="1" height="1" fill="#000"/>
+  <rect x="11" y="17" width="1" height="1" fill="#000"/>
+
+  <rect x="8" y="18" width="1" height="1" fill="#000"/>
+  <rect x="10" y="18" width="1" height="1" fill="#000"/>
+  <rect x="12" y="18" width="1" height="1" fill="#000"/>
+</svg>
+          </div>
             <p style={{ fontSize: '0.78rem', color: 'var(--nexus-text-muted)', marginBottom: 16 }}>
               Manual key: <code style={{ background: '#f1f5f9', padding: '2px 6px', borderRadius: 4, letterSpacing: '0.05em' }}>NEXUS-2FA-DEMO-KEY</code>
             </p>

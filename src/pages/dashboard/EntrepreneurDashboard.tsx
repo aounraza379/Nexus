@@ -21,41 +21,49 @@ const TOUR_STEPS: Step[] = [
     content: 'Your dashboard overview — pending requests, connections, meetings and profile views all at a glance.',
     disableBeacon: true,
     title: '👋 Welcome to Nexus!',
+    placement: 'bottom' as const,
   },
   {
     target: '.tour-wallet',
-    content: 'Your wallet balance and quick payment actions. Deposit funds, withdraw, or transfer to connections.',
+    content: 'Your wallet balance and quick payment actions. Deposit, withdraw or transfer to connections.',
     title: '💳 Wallet',
+    placement: 'bottom' as const,
   },
   {
     target: '.tour-collaboration',
-    content: 'Investors who want to collaborate with you appear here. Accept or decline requests directly.',
+    content: 'Investors who want to collaborate appear here. Accept or decline requests directly.',
     title: '🤝 Collaboration Requests',
+    placement: 'top' as const,
   },
   {
     target: '.tour-investors',
-    content: 'Recommended investors matched to your startup profile. Click View all to explore more.',
+    content: 'Recommended investors matched to your startup. Click View all to explore more.',
     title: '🔍 Recommended Investors',
+    placement: 'left' as const,
   },
   {
-    target: '.tour-sidebar-calendar',
-    content: 'Schedule meetings, add availability slots and manage investor calls from your calendar.',
+    target: 'a[href="/calendar"]',
+    content: 'Schedule meetings, add availability slots and manage investor calls.',
     title: '📅 Calendar',
+    placement: 'right' as const,
   },
   {
-    target: '.tour-sidebar-video',
+    target: 'a[href="/video"]',
     content: 'Start face-to-face video calls with your investors directly from the platform.',
     title: '🎥 Video Calls',
+    placement: 'right' as const,
   },
   {
-    target: '.tour-sidebar-payments',
+    target: 'a[href="/payments"]',
     content: 'Full payment management — deposits, withdrawals, transfers and transaction history.',
     title: '💰 Payments',
+    placement: 'right' as const,
   },
   {
-    target: '.tour-sidebar-security',
+    target: 'a[href="/security"]',
     content: 'Secure your account with password management, 2FA, and session monitoring.',
     title: '🔒 Security',
+    placement: 'right' as const,
   },
 ];
 
@@ -106,13 +114,16 @@ export const EntrepreneurDashboard: React.FC = () => {
 
       {/* Joyride Tour */}
       <Joyride
-        key={tourKey}
-        steps={TOUR_STEPS}
-        run={runTour}
-        continuous
-        showSkipButton
-        showProgress
-        callback={handleTourCallback}
+      key={tourKey}
+      steps={TOUR_STEPS}
+      run={runTour}
+      continuous
+      showSkipButton
+      showProgress
+      scrollToFirstStep
+      disableScrolling={false}
+      scrollOffset={80}
+      callback={handleTourCallback}
         styles={{
           options: {
             primaryColor: '#2563eb',
@@ -290,12 +301,6 @@ export const EntrepreneurDashboard: React.FC = () => {
           </Card>
         </div>
       </div>
-
-      {/* Tour target anchors for sidebar items */}
-      <span className="tour-sidebar-calendar" style={{ position: 'fixed', left: 0, top: '50%' }} />
-      <span className="tour-sidebar-video"    style={{ position: 'fixed', left: 0, top: '55%' }} />
-      <span className="tour-sidebar-payments" style={{ position: 'fixed', left: 0, top: '60%' }} />
-      <span className="tour-sidebar-security" style={{ position: 'fixed', left: 0, top: '65%' }} />
     </div>
   );
 };
