@@ -44,10 +44,10 @@ export const Sidebar: React.FC = () => {
     { to: '/notifications', icon: <Bell size={20} />,                     text: 'Notifications' },
     { to: '/documents',   icon: <FileText size={20} />,                   text: 'Documents' },
     // ── Phase 2 ──────────────────────────────────────
-    { to: '/calendar',    icon: <Calendar size={20} />,                   text: 'Calendar' },
-    { to: '/video',       icon: <Video size={20} />,                      text: 'Video Calls' },
-    { to: '/payments',    icon: <CreditCard size={20} />,                 text: 'Payments' },
-    { to: '/security',    icon: <Shield size={20} />,                     text: 'Security' },
+    { to: '/calendar', icon: <Calendar size={20} />,  text: 'Calendar',    className: 'tour-sidebar-calendar' },
+    { to: '/video',    icon: <Video size={20} />,      text: 'Video Calls', className: 'tour-sidebar-video' },
+    { to: '/payments', icon: <CreditCard size={20} />, text: 'Payments',    className: 'tour-sidebar-payments' },
+    { to: '/security', icon: <Shield size={20} />,     text: 'Security',    className: 'tour-sidebar-security' },
   ];
   
   const investorItems = [
